@@ -29,7 +29,7 @@ Generate random sequence of dummy sensor values and send it to our clients
 def background_thread():
     print("Connecting to Projeto3/data.db")
     while True:
-        conn = sqlite3.connect("MyApp/data.db")
+        conn = sqlite3.connect("data.db")
         cursor = conn.cursor()
 
         data = cursor.execute("SELECT * FROM trades ORDER BY time DESC LIMIT 10").fetchall()

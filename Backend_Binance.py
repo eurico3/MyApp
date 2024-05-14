@@ -5,7 +5,7 @@ import sqlite3
 import aiosqlite
 import json
 
-conn = sqlite3.connect("MyApp/data.db")
+conn = sqlite3.connect("data.db")
 cursor = conn.cursor()
 
 cursor.execute("DROP TABLE IF EXISTS trades")
@@ -39,7 +39,7 @@ async def save_data(url):
 
                 #print('Writing to DB !!')
 
-                async with aiosqlite.connect("MyApp/data.db") as db:
+                async with aiosqlite.connect("data.db") as db:
 
                     await db.executemany("""INSERT INTO trades
                                          (id, time, quantity, price) VALUES (?,?,?,?)""", buffer)
